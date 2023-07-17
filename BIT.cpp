@@ -18,10 +18,10 @@ public:
   BIT(const vi &arr) { build(arr); }
 
   void build(const vi &arr) {
-    int m = (int)arr.size() - 1; // note f[0] is always 0
+    int m = (int)arr.size(); // note v[0] is always 0
     v.assign(m + 1, 0);
     for (int i = 1; i <= m; ++i) {
-      v[i] += arr[i];
+      v[i] += arr[i - 1];
       if (i + LSOne(i) <= m)     // i has parent
         v[i + LSOne(i)] += v[i]; // add to that parent
     }
